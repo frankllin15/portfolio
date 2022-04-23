@@ -1,35 +1,31 @@
-import Image from "next/image";
+import LinkedinIcon from "../../public/icons/linkedin.svg";
+import GithubIcon from "../../public/icons/github.svg";
+import EmailIcon from "../../public/icons/email.svg";
 
 export const Footer: React.FC = () => (
   <footer>
     <div className="flex flex-col items-center justify-evenly h-24">
       <div className="flex items-center justify-center ">
         <a
-          className="h-8 w-8 mr-2"
-          href="https://www.linkedin.com/in/franklin-teixeira-a9a8b9b4/"
+          href="https://www.linkedin.com/in/frankllin-teixeira-244a9517b/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            src={require("../../public/icons/linkedin.svg")}
-            alt="LinkedIn"
-          />
+          <LinkedinIcon className="mx-2" />
         </a>
         <a
-          className="h-8 w-8 mr-2"
-          href="github.com/franklin15"
+          href="github.com/frankllin15"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={require("../../public/icons/github.svg")} alt="GitHub" />
+          <GithubIcon className="mx-2 dark:fill-neutral-100" />
         </a>
         <a
-          className="h-8 w-8"
           href="mailto:frankllin15@hotmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={require("../../public/icons/email.svg")} alt="Email" />
+          <EmailIcon className="mx-2 dark:fill-neutral-100" />
         </a>
       </div>
       <div className="flex flex-col items-center justify-center ">
