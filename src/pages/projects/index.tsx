@@ -5,6 +5,7 @@ import { ProjectEmbed } from "../../components/projects/ProjectEmbed";
 import { Project } from "../../types";
 import { request } from "../../lib/datocms";
 import { responsiveImageFragment } from "../../lib/fragments";
+import { NextSeo } from "next-seo";
 
 type Props = {
   projects: Project[];
@@ -49,7 +50,7 @@ ${responsiveImageFragment}
 const Projects: NextPage<Props> = ({ data }) => {
   return (
     <div className="container-padding">
-      {/* <SEO title="Projects" /> */}
+      <NextSeo title="Projetos" />
       <h1 className="text-2xl">Projetos</h1>
       <p>Estes são alguns projetos que desenvolvi</p>
       <section className="mt-4">

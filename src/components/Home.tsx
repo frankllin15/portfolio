@@ -10,7 +10,7 @@ import { TypeScriptIcon } from "./icons/tecnologies/TypescriptIcon";
 import { JavaSriptIcon } from "./icons/tecnologies/JavaScriptIcon";
 import { GraphqlIcon } from "./icons/tecnologies/GraphqlIcon";
 import { TaiwindcssIcon } from "./icons/tecnologies/Taiwindcss";
-
+import { NextSeo } from "next-seo";
 const project = {
   id: "1",
   title: "Project 1",
@@ -52,6 +52,7 @@ const StyledIcon: React.FC<StyledIconProps> = ({
 export const Home: React.FC<Props> = ({ project }) => {
   return (
     <div className="w-full">
+      {/* <NextSeo title="Frank" /> */}
       <section className="flex flex-col justify-between items-center md:items-start md:flex-row-reverse container-padding  ">
         <div className="flex flex-col items-center">
           <div className="w-36 h-36 md:w-52 flex-grow-0 shrink-0 md:h-52 flex-aut  border-2 p-1 rounded-full mb-4 md:mb-0 relative">
@@ -79,21 +80,21 @@ export const Home: React.FC<Props> = ({ project }) => {
               <TypeScriptIcon className="w-8 h-8" />
             </StyledIcon>
             <StyledIcon
-              className="animate-[wave_1s_0.3s]"
+              className="animate-[wave_1s_0.4s]"
               title="Next.js"
               href="https://nextjs.org/"
             >
               <NextIcon className="w-14 h-14 dark:fill-white" />
             </StyledIcon>
             <StyledIcon
-              className="animate-[wave_1s_0.4s]"
+              className="animate-[wave_1s_0.6s]"
               title="GraphQL"
               href="https://graphql.org/"
             >
               <GraphqlIcon className="w-8 h-8" />
             </StyledIcon>
             <StyledIcon
-              className="animate-[wave_1s_0.5s]"
+              className="animate-[wave_1s_1s]"
               title="Taiwindcss"
               href="https://tailwindcss.com/"
             >

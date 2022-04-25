@@ -10,6 +10,7 @@ import {
   Image,
 } from "react-datocms";
 import { request } from "../../lib/datocms";
+import { NextSeo } from "next-seo";
 
 type Props = {
   subscription: any;
@@ -98,6 +99,7 @@ const ProjectPage: NextPage<Props> = ({ subscription, preview }) => {
 
   return (
     <div className="container-padding mb-12">
+      <NextSeo title={project?.title} description={project?.description} />
       <h1 className="text-2xl md:text-4xl ">{project?.title}</h1>
 
       <div className="my-4">
