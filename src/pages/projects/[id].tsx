@@ -11,7 +11,7 @@ import {
 } from "react-datocms";
 import { request } from "../../lib/datocms";
 import { NextSeo } from "next-seo";
-
+import { renderRule, isList, isListItem } from "datocms-structured-text-utils";
 type Props = {
   subscription: any;
   preview: boolean;
@@ -96,7 +96,7 @@ type QueryResult = {
 const ProjectPage: NextPage<Props> = ({ subscription, preview }) => {
   const { data } = useQuerySubscription<QueryResult>(subscription);
   const project = data?.project;
-
+  console.log(project);
   return (
     <div className="container-padding mb-12">
       <NextSeo title={project?.title} description={project?.description} />

@@ -9,6 +9,7 @@ body {
   font-family: Inter, sans-serif;
   background-color: #fafafa;
 }
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -69,40 +70,47 @@ a {
     @apply text-neutral-800 dark:text-neutral-50;
     font-weight: 600;
   }
+  li {
+    list-style: circle;
+  }
   p {
     @apply text-neutral-600 dark:text-neutral-100;
     font-weight: 400;
   }
-  .markdown h1 {
+  h1 {
     font-size: 1.8rem;
+    margin: 1rem 0;
   }
 
-  .markdown h2 {
+  h2 {
     font-size: 1.5rem;
+    margin: 0.8rem 0;
   }
 
-  .markdown h3 {
+  h3 {
     font-size: 1.3rem;
+    margin: 0.5rem 0;
   }
 
-  .markdown h4 {
+  h4 {
     font-size: 1.1rem;
+    margin: 0.5rem 0;
   }
 
   @media (min-width: 768px) {
-    .markdown h1 {
+    h1 {
       @apply text-4xl;
     }
 
-    .markdown h2 {
+    h2 {
       @apply text-3xl;
     }
 
-    .markdown h3 {
+    h3 {
       @apply text-2xl;
     }
 
-    .markdown h4 {
+    h4 {
       @apply text-xl;
     }
   }
