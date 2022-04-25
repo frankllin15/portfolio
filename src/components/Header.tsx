@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "../context/theme/ThemeProvider";
 import { NavBar } from "./NavBar";
-import MenuIcon from "../../public/icons/menu.svg";
+import { SwitchTheme } from "./SwitchTheme";
+import { MenuIcon } from "./icons/MenuIcon";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -20,9 +21,10 @@ export const Header = () => {
           </h1>
         </a>
       </Link>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+
+      <SwitchTheme className="ml-auto mr-6" />
       <button onClick={handleToggle} className="md:hidden">
-        <MenuIcon className=" md:hidden" />
+        <MenuIcon className="dark:fill-white md:hidden" />
       </button>
       <NavBar open={open} toggle={handleToggle} />
     </header>

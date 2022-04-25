@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import CloseIcon from "../../public/icons/close.svg";
+import { CloseIcon } from "./icons/CloseIcon";
 
 type Props = {
   open: boolean;
@@ -59,7 +59,7 @@ export const NavBar: React.FC<Props> = ({ open, toggle }) => {
         className="absolute top-6 right-4 dark:fill-neutral-50 md:hidden"
         onClick={toggle}
       >
-        <CloseIcon className="dark:fill-neutral-50" />
+        <CloseIcon className="dark:fill-neutral-50 w-8 h-8" />
       </button>
     </nav>
   );
