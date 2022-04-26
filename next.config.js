@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["source.unsplash.com"],
+    domains: ["source.unsplash.com", "avatars.githubusercontent.com"],
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(

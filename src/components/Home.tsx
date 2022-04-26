@@ -55,12 +55,14 @@ export const Home: React.FC<Props> = ({ project }) => {
       {/* <NextSeo title="Frank" /> */}
       <section className="flex flex-col justify-between items-center md:items-start md:flex-row-reverse container-padding  ">
         <div className="flex flex-col items-center">
-          <div className="w-36 h-36 md:w-52 flex-grow-0 shrink-0 md:h-52 flex-aut  border-2 p-1 rounded-full mb-4 md:mb-0 relative">
+          <div className="w-36 h-36 md:w-52 flex-grow-0 shrink-0 md:h-52 flex-auto  border-2 p-1 rounded-full mb-4 md:mb-0 relative overflow-hidden">
             <Image
               layout="responsive"
+              width={400}
+              height={400}
               className="rounded-full"
               alt="Foto de perfil"
-              src={require("../../public/images/me.webp")}
+              src="https://avatars.githubusercontent.com/u/65142775?s=400&u=abd854c58da4cfc497fa958b7c049fe27a01dea3&v=4"
             />
           </div>
           <div className="flex items-center gap-2 justify-evenly bg-neutral-100 dark:bg-neutral-700 px-4 rounded-md my-4">
