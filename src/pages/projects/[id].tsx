@@ -12,6 +12,7 @@ import {
 import { request } from "../../lib/datocms";
 import { NextSeo } from "next-seo";
 import { renderRule, isList, isListItem } from "datocms-structured-text-utils";
+import ScrollToTop from "../../components/ScrollToTop";
 type Props = {
   subscription: any;
   preview: boolean;
@@ -127,6 +128,7 @@ const ProjectPage: NextPage<Props> = ({ subscription, preview }) => {
           );
         }}
       />
+      <ScrollToTop />
     </div>
   );
 };
