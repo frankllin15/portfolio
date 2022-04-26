@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import Link from "next/link";
-import { Project } from "../../types";
+import { Project } from "../types";
 import moment from "moment";
 import { Image } from "react-datocms";
 
@@ -11,8 +11,12 @@ type Props = {
 
 export const ProjectEmbed: React.FC<Props> = ({ project }) => {
   return (
-    <div className="grid gap-3 mobile-only:grid-rows-[auto_1fr] md:grid-cols-[minmax(100px,_260px)_1fr]  my-4 bg-neutral-100 dark:bg-neutral-700 p-2 rounded-sm shadow-sm hover:-translate-y-1 hover:shadow-md duration-300">
-      <Image data={project.coverImage?.responsiveImage} />
+    <div className="grid gap-3 mobile-only:grid-rows-[auto_1fr] md:grid-cols-[minmax(100px,_260px)_1fr]  my-4 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-sm shadow-sm hover:-translate-y-1 hover:shadow-md duration-300">
+      <Link href={`/projects/${project.slug}`}>
+        <a>
+          <Image data={project.coverImage?.responsiveImage} />
+        </a>
+      </Link>
       {/* <div className="w-auto  md:mr-4  "></div> */}
       <div className="">
         <Link href={`/projects/${project.slug}`}>

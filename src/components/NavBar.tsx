@@ -13,10 +13,7 @@ const links = [
     href: "/projects",
     label: "Projetos",
   },
-  {
-    href: "/about",
-    label: "Sobre",
-  },
+
   {
     href: "/blog",
     label: "Blog",
@@ -48,7 +45,7 @@ export const NavBar: React.FC<Props> = ({ open, toggle }) => {
         <Link href={link.href} key={link.href}>
           <a
             onClick={handleClose}
-            className="text-gray-800 dark:text-neutral-50 md:mr-4 mobile-only:text-3xl text-xl mobile-only:pb-10  font-semibold hover:text-teal-500 duration-200"
+            className="text-gray-800 dark:text-neutral-50 md:mr-4 mobile-only:text-3xl text-xl mobile-only:pb-10  font-semibold hover:text-teal-500 dark:hover:text-teal-500 duration-200"
           >
             {link.label}
           </a>

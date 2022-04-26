@@ -71,7 +71,14 @@ a {
     font-weight: 600;
   }
   li {
-    list-style: circle;
+    list-style: inside;
+  }
+  #article li > p {
+    display: inline;
+  }
+  ul {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
   }
   p {
     @apply text-neutral-600 dark:text-neutral-100;

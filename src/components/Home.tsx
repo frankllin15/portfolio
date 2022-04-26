@@ -1,24 +1,22 @@
-import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { request } from "../lib/datocms";
-import { responsiveImageFragment } from "../lib/fragments";
 import { Project } from "../types";
-import { ProjectEmbed } from "./projects/ProjectEmbed";
+import { ProjectEmbed } from "./ProjectEmbed";
 import { NextIcon } from "./icons/tecnologies/NextIcon";
 import { TypeScriptIcon } from "./icons/tecnologies/TypescriptIcon";
 import { JavaSriptIcon } from "./icons/tecnologies/JavaScriptIcon";
 import { GraphqlIcon } from "./icons/tecnologies/GraphqlIcon";
 import { TaiwindcssIcon } from "./icons/tecnologies/Taiwindcss";
-import { NextSeo } from "next-seo";
-const project = {
-  id: "1",
-  title: "Project 1",
-  description: "This is a project",
-  image: "https://source.unsplash.com/random",
-  created_at: "2022-04-22T21:08:36.834Z",
-  tags: ["tag1", "tag2"],
-};
+
+const H2 = ({ children }: any) => (
+  <h2 className="text-xl text-teal-600 dark:text-teal-600">{children}</h2>
+);
+
+const ListItem = ({ children }: any) => (
+  <li className="list-none">
+    <p className="text-lg text-gray-700 text-center">{children}</p>
+  </li>
+);
 
 type Props = {
   project: Project;
@@ -50,6 +48,7 @@ const StyledIcon: React.FC<StyledIconProps> = ({
 );
 
 export const Home: React.FC<Props> = ({ project }) => {
+  const birthDate = new Date(2001, 9, 4);
   return (
     <div className="w-full">
       {/* <NextSeo title="Frank" /> */}
@@ -65,7 +64,7 @@ export const Home: React.FC<Props> = ({ project }) => {
               src="https://avatars.githubusercontent.com/u/65142775?s=400&u=abd854c58da4cfc497fa958b7c049fe27a01dea3&v=4"
             />
           </div>
-          <div className="flex items-center gap-2 justify-evenly bg-neutral-100 dark:bg-neutral-700 px-4 rounded-md my-4">
+          <div className="flex items-center gap-2 justify-evenly bg-neutral-100 dark:bg-neutral-800 px-4 rounded-md my-4">
             <StyledIcon
               className="animate-[wave_1s]"
               title="Javascript"
@@ -111,7 +110,8 @@ export const Home: React.FC<Props> = ({ project }) => {
           </h1>
 
           <p className="text-center md:text-left md:text-lg">
-            Trabalho como desenvolvedor desde 2019, e atualmente sou freelancer.
+            Começei meus estudos de programação em 2019, e atualmente sou
+            freelancer.
             <br />
             Meu foco atualmete tem sido o desenvolvimento frontend, mas também
             sou experiente com backends.
@@ -122,8 +122,87 @@ export const Home: React.FC<Props> = ({ project }) => {
         </div>
       </section>
       <section className=" container-padding py-4 my-4 ">
-        <div className="flex justify-between mb-4">
-          <h2 className="text-xl">Projetos</h2>
+        <div className="grid gap-4 grid-cols-1 grid-rows-[auto_auto_auto] md:grid-cols-2  md:grid-rows-[auto_auto] my-4">
+          <div className="flex flex-col items-center bg-neutral-100 dark:bg-neutral-800 p-4 rounded-md">
+            <div className="w-16 h-16 mx-auto ">
+              <Image
+                width={552}
+                height={552}
+                src="/images/frontend.svg"
+                alt="Frontend"
+              />
+            </div>
+            <h2 className="text-xl">Frontend</h2>
+            <p className="text-center">
+              Desenvolvimento de interfaces e aplicações web. Valorizo designs
+              limpos e objetivos. Atualmente trabalho com React e Next.js.
+            </p>
+            <H2>Linguagens</H2>
+            <ul className="flex justify-evenly w-full">
+              <ListItem>HTML5</ListItem>
+              <ListItem>CSS3</ListItem>
+            </ul>
+            <H2>Bibliotecas e Frameworks</H2>
+            <ul>
+              <ListItem>React</ListItem>
+              <ListItem>Next.js</ListItem>
+              <ListItem>Taiwindcss</ListItem>
+              <ListItem>Styled-components</ListItem>
+              <ListItem>Material UI</ListItem>
+            </ul>
+          </div>
+          <div className="flex flex-col items-center bg-neutral-100 dark:bg-neutral-800 p-4 rounded-md">
+            <div className="w-16 h-16 mx-auto">
+              <Image
+                width={552}
+                height={552}
+                src="/images/backend.svg"
+                alt="Frontend"
+              />
+            </div>
+            <h2 className="text-xl">Backend</h2>
+            <p className="text-center">
+              Desenvolvimento de APIs e modelagem de banco de dados. Busco
+              escrever código legível e com boas práticas.
+            </p>
+            <H2>Linguagens</H2>
+            <ul>
+              <ListItem>Javascript</ListItem>
+              <ListItem>Typescript</ListItem>
+              <ListItem>Python</ListItem>
+            </ul>
+
+            <H2>Bibliotecas e Frameworks</H2>
+            <ul>
+              <ListItem>Express.js</ListItem>
+              <ListItem>Nest.js</ListItem>
+              <ListItem>Prisma.js</ListItem>
+              <ListItem>Graphql</ListItem>
+              <ListItem>Flask</ListItem>
+            </ul>
+          </div>
+          <div className="w-full md:col-span-2 flex flex-row item bg-neutral-100 dark:bg-neutral-800 p-4 rounded-md">
+            <div className="flex-1 flex flex-col items-center">
+              <H2 className="text-xl text-teal-700">Ferramentas</H2>
+              <ul>
+                <ListItem>Git</ListItem>
+                <ListItem>GitHub</ListItem>
+                <ListItem>Docker</ListItem>
+                <ListItem>Terminal</ListItem>
+              </ul>
+            </div>
+            <div className="flex-1 flex flex-col items-center">
+              <H2 className="text-xl text-teal-700">Banco de dados</H2>
+              <ul>
+                <ListItem>MongoDB</ListItem>
+                <ListItem>PostgreSQL</ListItem>
+                <ListItem>Sqlite</ListItem>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl">Projetos</h2>
           <Link href="/projects">
             <a className="text-blue-500">Ver todos</a>
           </Link>

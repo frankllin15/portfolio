@@ -98,7 +98,7 @@ const ProjectPage: NextPage<Props> = ({ subscription, preview }) => {
   const project = data?.project;
   console.log(project);
   return (
-    <div className="container-padding mb-12">
+    <div id="article" className="container-padding mb-12">
       <NextSeo title={project?.title} description={project?.description} />
       <h1 className="text-2xl md:text-4xl ">{project?.title}</h1>
 

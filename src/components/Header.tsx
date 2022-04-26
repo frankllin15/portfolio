@@ -10,13 +10,12 @@ export const Header = () => {
   const handleToggle = () => {
     setOpen(!open);
   };
-  const { toggleTheme, theme } = useTheme();
 
   return (
     <header className="h-20 w-full px-4 md:px-8 flex flex-row justify-between items-center shadow-sm">
       <Link href="/">
         <a>
-          <h1 className="text-2xl mdtext-3xl">
+          <h1 className="text-2xl md:text-3xl">
             Frankllin <span className="text-teal-500">Teixeira</span>
           </h1>
         </a>

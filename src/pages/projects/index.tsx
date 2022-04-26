@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticProps, NextPage } from "next";
-import { ProjectEmbed } from "../../components/projects/ProjectEmbed";
+import { ProjectEmbed } from "../../components/ProjectEmbed";
 import { Project } from "../../types";
 import { request } from "../../lib/datocms";
 import { responsiveImageFragment } from "../../lib/fragments";
