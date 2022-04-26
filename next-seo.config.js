@@ -8,7 +8,7 @@ const config = {
     site_name: "Frankllin Teixeira",
     images: [
       {
-        url: "https://frankllin.dev/static/images/og-image.png",
+        url: "https://https://frankllin.vercel.app/images/og-image.png",
         width: 756,
         height: 621,
         alt: "Frankllin Teixeira",
