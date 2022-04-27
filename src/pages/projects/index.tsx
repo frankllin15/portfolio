@@ -6,55 +6,26 @@ import { Project } from "../../types";
 import { request } from "../../lib/datocms";
 import { responsiveImageFragment } from "../../lib/fragments";
 import { NextSeo } from "next-seo";
+import { useQuerySubscription } from "react-datocms";
 
 type Props = {
-  projects: Project[];
-  data: any;
+  subscription: any;
 };
 
-const HOMEPAGE_QUERY = `
-query HomePage {
-  allProjects {
-    id
-    slug
-    title
-    description
-    createdAt
-    tags {
-      name
-    }
-    coverImage {
-      responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 700 }) {
-        ...responsiveImageFragment
-      }
-    }
-    content {
-      value
-      blocks {
-        __typename
-        ...on ImageBlockRecord {
-          id
-          image {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
-              ...responsiveImageFragment
-            }
-          }
-        }
-      }
-    }
-  }
-}
-${responsiveImageFragment}
-`;
+type QueryResult = {
+  allProjects: Project[];
+};
 
-const Projects: NextPage<Props> = ({ data }) => {
+const Projects: NextPage<Props> = ({ subscription }) => {
+  const { data } = useQuerySubscription<QueryResult>(subscription);
+  const projects = data?.allProjects;
   return (
     <div className="container-padding">
       <NextSeo title="Projetos" />
       <h1 className="text-2xl">Projetos</h1>
       <p>Estes são alguns projetos que desenvolvi</p>
       <section className="mt-4">
-        {data.map((project: any) => (
+        {projects?.map((project) => (
           <ProjectEmbed key={project.id} project={project} />
         ))}
       </section>
@@ -62,14 +33,60 @@ const Projects: NextPage<Props> = ({ data }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await request({
-    query: HOMEPAGE_QUERY,
-    variables: { limit: 10 },
-  });
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const graphqlRequest = {
+    query: `
+    query HomePage {
+      allProjects {
+        id
+        slug
+        title
+        description
+        createdAt
+        tags {
+          name
+        }
+        coverImage {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 700 }) {
+            ...responsiveImageFragment
+          }
+        }
+        content {
+          value
+          blocks {
+            __typename
+            ...on ImageBlockRecord {
+              id
+              image {
+                responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                  ...responsiveImageFragment
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ${responsiveImageFragment}
+    `,
+
+    variables: { limit: 20 },
+    preview,
+  };
+
   return {
     props: {
-      data: data?.allProjects,
+      subscription: preview
+        ? {
+            ...graphqlRequest,
+            initialData: await request(graphqlRequest),
+            token: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN,
+          }
+        : {
+            enabled: false,
+            initialData: await request(graphqlRequest),
+          },
+      preview,
     },
   };
 };

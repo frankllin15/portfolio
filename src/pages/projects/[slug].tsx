@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: data.allProjects.map(
       (project: { slug: string }) => `/projects/${project.slug}`
     ),
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async ({
           name
         }
         coverImage {
-          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 850 }) {
             ...responsiveImageFragment
           }
         }
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({
             ...on ImageBlockRecord {
               id
               image {
-                responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 850 }) {
                   ...responsiveImageFragment
                 }
               }
@@ -79,7 +79,7 @@ ${responsiveImageFragment}
         ? {
             ...graphqlRequest,
             initialData: await request(graphqlRequest),
-            token: process.env.NEXT_EXAMPLE_CMS_DATOCMS_API_TOKEN,
+            token: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN,
           }
         : {
             enabled: false,
@@ -87,6 +87,7 @@ ${responsiveImageFragment}
           },
       preview,
     },
+    revalidate: 1 * 60 * 60 * 24,
   };
 };
 
@@ -94,10 +95,9 @@ type QueryResult = {
   project: Project;
 };
 
-const ProjectPage: NextPage<Props> = ({ subscription, preview }) => {
+const ProjectPage: NextPage<Props> = ({ subscription }) => {
   const { data } = useQuerySubscription<QueryResult>(subscription);
   const project = data?.project;
-  console.log(project);
   return (
     <div id="article" className="container-padding mb-12">
       <NextSeo title={project?.title} description={project?.description} />
