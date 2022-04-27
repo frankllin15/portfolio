@@ -9,9 +9,6 @@ export default async function handler(
   if (req.query.secret !== process.env.REVALIDATE_PROJECT_SECRET) {
     return res.status(401).json({ message: "Invalid token" });
   }
-  if (req.body.entity_type !== "project") {
-    return res.status(400).json({ message: "Invalid entity type" });
-  }
 
   try {
     await res.unstable_revalidate(`/projects/${req.body.entity_slug}`);
