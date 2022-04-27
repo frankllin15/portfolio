@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: data.allProjects.map(
       (project: { slug: string }) => `/projects/${project.slug}`
     ),
-    fallback: true,
+    fallback: false,
   };
 };
 
