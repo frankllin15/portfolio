@@ -4,15 +4,15 @@ const config = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://frankllin.dev",
+    url: "https://frankllin.vercel.app/",
     site_name: "Frankllin Teixeira",
     images: [
       {
-        url: "https://https://frankllin.vercel.app/images/og-image.png",
-        width: 756,
-        height: 621,
+        url: "https://frankllin.vercel.app/images/og-image.webp",
+        width: 192,
+        height: 192,
         alt: "Frankllin Teixeira",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
   },
