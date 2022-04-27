@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async ({
         id
         slug
         title
-        createdAt
+        dateTime
         tags {
           name
         }
@@ -105,7 +105,7 @@ const ProjectPage: NextPage<Props> = ({ subscription }) => {
 
       <div className="my-4">
         <time className="px-2 py-1 rounded-xl mr-2 bg-teal-600 text-neutral-100 text-sm">
-          {moment(project?.created_at).format("YYYY")}
+          {moment(project?.dateTime).get("year")}
         </time>
         <span className="text-slate-400">
           {project?.tags?.map((tag) => tag.name).join(" | ")}

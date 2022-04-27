@@ -26,7 +26,7 @@ export const ProjectEmbed: React.FC<Props> = ({ project }) => {
         </Link>
         <div className="mb-2">
           <span className="px-2 py-1 rounded-xl mr-2 bg-teal-600 text-neutral-100 text-sm">
-            {moment(project.createdAt).format("YYYY")}
+            {moment(project.dateTime).format("YYYY")}
           </span>
           <span className="text-slate-400 dark:text-neutral-200">
             {project?.tags?.map((tag) => tag.name).join(" | ")}

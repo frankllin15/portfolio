@@ -7,12 +7,12 @@ import { Project } from "../types";
 
 const HOMEPAGE_QUERY = `
 query HomePage {
-  allProjects(orderBy: createdAt_DESC, first: 1) {
+  allProjects(orderBy: createdAt_DESC, first: 3) {
     id
     slug
     title
     description
-    createdAt
+    dateTime
     tags {
       name
     }
@@ -46,14 +46,14 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   return {
     props: {
-      data: data?.allProjects[0],
+      data: data?.allProjects,
     },
     revalidate: 1 * 60 * 60,
   };
 };
 
 type Props = {
-  data: Project;
+  data: Project[];
 };
 
 const HomePage: NextPage<Props> = ({ data }) => {
@@ -64,7 +64,7 @@ const HomePage: NextPage<Props> = ({ data }) => {
         <meta name="description" content="Frankllin's portifolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Home project={data} />
+      <Home projects={data} />
     </div>
   );
 };

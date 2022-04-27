@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import { ProjectEmbed } from "../../components/ProjectEmbed";
 import { Project } from "../../types";
 import { request } from "../../lib/datocms";
@@ -33,7 +33,9 @@ const Projects: NextPage<Props> = ({ subscription }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  preview = false,
+}) => {
   const graphqlRequest = {
     query: `
     query HomePage {
@@ -42,7 +44,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
         slug
         title
         description
-        createdAt
+        dateTime
         tags {
           name
         }

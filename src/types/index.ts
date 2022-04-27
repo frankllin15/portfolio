@@ -3,6 +3,7 @@ export type Project = {
   title: string;
   description: string;
   image: string;
+  dateTime: string;
   created_at: string;
   tags: {
     name: string;

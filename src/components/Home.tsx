@@ -19,7 +19,7 @@ const ListItem = ({ children }: any) => (
 );
 
 type Props = {
-  project: Project;
+  projects: Project[];
 };
 
 type StyledIconProps = {
@@ -47,7 +47,7 @@ const StyledIcon: React.FC<StyledIconProps> = ({
   </a>
 );
 
-export const Home: React.FC<Props> = ({ project }) => {
+export const Home: React.FC<Props> = ({ projects }) => {
   const birthDate = new Date(2001, 9, 4);
   return (
     <div className="w-full">
@@ -207,7 +207,9 @@ export const Home: React.FC<Props> = ({ project }) => {
             <a className="text-blue-500">Ver todos</a>
           </Link>
         </div>
-        <ProjectEmbed project={project} />
+        {projects.map((project) => (
+          <ProjectEmbed key={project.id} project={project} />
+        ))}
       </section>
     </div>
   );
