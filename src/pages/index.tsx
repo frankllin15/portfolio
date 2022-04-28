@@ -60,7 +60,6 @@ const HomePage: NextPage<Props> = ({ data }) => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
         <meta name="description" content="Frankllin's portifolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

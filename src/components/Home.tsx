@@ -110,7 +110,7 @@ export const Home: React.FC<Props> = ({ projects }) => {
           </h1>
 
           <p className="text-center md:text-left md:text-lg">
-            Começei meus estudos de programação em 2019, e atualmente sou
+            Comecei meus estudos de programação em 2019, e atualmente sou
             freelancer.
             <br />
             Meu foco atualmete tem sido o desenvolvimento frontend, mas também
