@@ -118,7 +118,7 @@ const ProjectPage: NextPage<Props> = ({ subscription }) => {
         renderBlock={({ record }) => {
           if (record.__typename === "ImageBlockRecord") {
             return (
-              <Image className="mb-4" data={record.image.responsiveImage} />
+              <Image className="my-4" data={record.image.responsiveImage} />
             );
           }
 
