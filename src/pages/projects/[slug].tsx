@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({
             ...on ImageBlockRecord {
               id
               image {
-                responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 850 }) {
+                responsiveImage(imgixParams: {fm: webp, fit: crop }) {
                   ...responsiveImageFragment
                 }
               }
@@ -117,7 +117,9 @@ const ProjectPage: NextPage<Props> = ({ subscription }) => {
         data={project?.content}
         renderBlock={({ record }) => {
           if (record.__typename === "ImageBlockRecord") {
-            return <Image data={record.image.responsiveImage} />;
+            return (
+              <Image className="mb-4" data={record.image.responsiveImage} />
+            );
           }
 
           return (
