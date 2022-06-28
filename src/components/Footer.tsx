@@ -7,7 +7,7 @@ export const Footer: React.FC = () => (
     <div className="flex flex-col items-center justify-evenly h-24">
       <div className="flex items-center justify-center ">
         <a
-          href="https://www.linkedin.com/in/frankllin-teixeira-244a9517b/"
+          href="https://linkedin.com/in/frankllin-teixeira-244a9517b/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -15,7 +15,7 @@ export const Footer: React.FC = () => (
           <LinkedinIcon className="w-8 h-8" />
         </a>
         <a
-          href="github.com/frankllin15"
+          href="http://github.com/frankllin15"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            Franklin Teixeira
+            Frankllin Teixeira
           </a>
         </p>
       </div>
