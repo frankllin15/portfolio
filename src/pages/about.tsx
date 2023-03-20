@@ -13,7 +13,7 @@ const AboutPage = () => {
             </p>
             <p>
                 Sou desenvolvedor web e apaixonado por tecnologia. Atualmente
-                trabalho comoo desenvolvedor fullstack no{" "}
+                trabalho como desenvolvedor fullstack no{" "}
                 <a
                     href="https://www.linkedin.com/company/grupomoradaoficial/mycompany/"
                     target="_blank"
